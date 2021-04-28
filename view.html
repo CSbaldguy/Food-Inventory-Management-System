@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>View</title>
+		<script src="/www/library/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript" src="http://livejs.com/live.js"></script>
+		<link rel="stylesheet" type="text/css" href="./view.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	</head>
+	
+	<body>
+		<ul>
+			<li><a href="./upload.html">Upload</a></li>
+			<li><a class="active" href="./view.html">View</a></li>
+			<li><a href="./remove.html">Quick Remove</a></li>
+		</ul>
+		
+		<script>
+		$.ajax({
+      url: './listAllItems.php', 
+      type: 'POST',
+      success: function( data ) {
+          document.getElementById("form-display").innerHTML = data;
+      }
+    });
+		
+		function subf(i){ 
+			if (parseInt(document.getElementById('newQuantity'.concat(i)).value) > 0) {
+				document.getElementById('newQuantity'.concat(i)).value = parseInt(document.getElementById('newQuantity'.concat(i)).value) - 1; 
+			}
+			if (parseInt(document.getElementById('newQuantity'.concat(i)).value) == 0) {
+				document.getElementById('sub'.concat(i)).disabled = true; 
+				document.getElementById('sub'.concat(i)).style.opacity = 0.5; 
+			}	
+			if (document.getElementById('add'.concat(i)).disabled == true) {
+				document.getElementById('add'.concat(i)).disabled = false;
+				document.getElementById('add'.concat(i)).style.opacity = 1; 
+			}
+		}	
+		
+		function addf(i){ 
+			if (parseInt(document.getElementById('newQuantity'.concat(i)).value) < parseInt(document.getElementById('oldQuantity'.concat(i)).value)) {
+				document.getElementById('newQuantity'.concat(i)).value = parseInt(document.getElementById('newQuantity'.concat(i)).value) + 1; 
+			}
+			if (parseInt(document.getElementById('newQuantity'.concat(i)).value) == parseInt(document.getElementById('oldQuantity'.concat(i)).value)) {
+				document.getElementById('add'.concat(i)).disabled = true; 
+				document.getElementById('add'.concat(i)).style.opacity = 0.5; 
+			}		
+			if (document.getElementById('sub'.concat(i)).disabled == true) {
+				document.getElementById('sub'.concat(i)).disabled = false;
+				document.getElementById('sub'.concat(i)).style.opacity = 1; 
+			}			
+		}			
+		</script>
+		
+		<form id="update-form" method="POST">
+			<script>
+			$("#update-form").submit(function(e) {
+
+					e.preventDefault(); // avoid to execute the actual submit of the form.
+
+					var url = "./updateRecordById.php";
+					
+					$.ajax({
+								type: "POST",
+								url: url,
+								data: new FormData( this ), // serializes the form's elements.
+								processData: false,
+								contentType: false,
+								success: function(data)
+								{									
+										 alert(data); // show response from the php script.
+										 location.reload();
+								}
+							});
+						
+			});					
+			</script>
+			<div id="form-display">
+			</div>
+		</form>
+		
+	</body>
+</html>

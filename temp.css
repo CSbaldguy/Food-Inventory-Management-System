@@ -1,0 +1,18 @@
+#err {
+	max-width: 100%;
+}
+
+input[type=date] {
+	-webkit-appearance: none;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=number] {
+	-webkit-appearance: none;
+  padding: 12px 20px;
+  margin: 8px 16px;
+  box-sizing: border-box;
+}
+

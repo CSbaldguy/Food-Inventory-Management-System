@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="/www/library/quaggaJS/dist/quagga.min.js"></script>
+		<script src="/www/library/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./upload.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	</head>
+	
+	<body>
+		<script>
+		$.ajax({
+      url: './temp.php', 
+      type: 'POST',
+      success: function( data ) {
+          document.getElementById("form").innerHTML = data;
+      }
+    });		
+		</script>	
+		
+		<div id="form">
+		</div>
+	</body>
+</html>
+</html>

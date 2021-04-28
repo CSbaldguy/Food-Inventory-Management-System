@@ -1,0 +1,161 @@
+/* Unordered list (whole bar) */
+ul {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  list-style-type: none;
+  margin: 0; 
+  padding: 0;
+  overflow: hidden;
+  background-color: #f3f3f3;
+}
+
+/* For each list element: use float to get block elements to slide next to each other */
+li {
+  float: left;
+}
+
+/* For each list element text */
+li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #DDD;
+}
+
+/* Color of current page element */
+.active {
+  background-color: #4CAF50;
+}
+
+a.active {
+  color: #FFF;
+}
+
+body { 
+	padding-top: 50px; 
+	padding-bottom: 50px; 
+	font-family: Calibri;
+}
+
+img {
+	width: 100%;
+	display: block;
+}
+
+table {
+	width: 100%;
+  border-collapse: collapse;
+	text-align: center;
+}
+
+th, td {
+  border: 1px solid black;
+	text-align: "center";
+} 
+
+.mytable td:nth-child(1) {
+	width: 20%;
+}
+
+.mytable td:nth-child(2) {
+	width: 10%;
+}
+
+.mytable td:nth-child(3) {
+	width: 10%;
+}
+
+.mytable th:nth-child(1) {
+	width: 20%;
+} 
+
+@media (min-width: 1281px) {
+  table {
+		width: 40%;
+		border-collapse: collapse;
+		text-align: center;
+	}
+	
+ 	.mytable td:nth-child(1) {
+		width: 7%;
+	}
+ 	.mytable td:nth-child(2) {
+		width: 5%;
+	}
+ 	.mytable td:nth-child(3) {
+		width: 11%;
+	}	
+	.mytable th:nth-child(1) {
+		width: 5%;
+	}  
+}
+
+.almost {
+	background-color: #ff8000;
+}
+
+.urgent {
+	background-color: #ff4000;
+}
+
+.noExpiry {
+	background-color: #bfff00;
+}
+
+input[type=number] {
+	-webkit-appearance: none;
+  width: 65%;
+  padding: 12px 20px;
+  margin: 0;
+  box-sizing: border-box;
+	font-size: 16px;
+	text-align: center; 
+}
+
+.subbutton {
+	-webkit-appearance: none;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 30px;
+	vertical-align: middle;
+}
+
+.addbutton {
+	-webkit-appearance: none;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 30px;
+	vertical-align: middle;
+}
+
+#submit {
+	-webkit-appearance: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+	width: 100%;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+	margin: 0;	
+	background-color: #4CAF50;
+}
